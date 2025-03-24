@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  cloudflare-dns-updater:
+    build: .
+    environment:
+      CF_API_TOKEN: "your-cloudflare-api-token"
+      CF_ZONE_NAME: "yourdomain.com"
+      CHECK_INTERVAL: 3600
+      INACTIVE_THRESHOLD_DAYS: 7
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
